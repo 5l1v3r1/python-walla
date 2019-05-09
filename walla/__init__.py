@@ -92,6 +92,7 @@ class Article:
                 return r_json
         else:
             return r_json
+        
     def _GetComments(self, commentList):
         comments = []
         for commentDict in commentList:
