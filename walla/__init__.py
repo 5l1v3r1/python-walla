@@ -18,6 +18,17 @@ class Comment:
         self.positive_likes = positive_likes
         self.negative_likes = negative_likes
 
+    def HasFatherComment(self):
+        if self.fatherId != 0:
+            return True
+        else:
+            return False
+
+    def GetFatherComment(self):
+        for comment in self.article.GetComments():
+            if comment.commentId == self.fatherId:
+                return comment
+
     def GetReplies(self):
         replies = []
         all_comments = self.article.GetComments()
@@ -92,7 +103,7 @@ class Article:
                 return r_json
         else:
             return r_json
-        
+
     def _GetComments(self, commentList):
         comments = []
         for commentDict in commentList:
